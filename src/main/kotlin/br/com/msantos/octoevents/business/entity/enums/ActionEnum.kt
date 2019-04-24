@@ -1,4 +1,4 @@
-package br.com.msantos.octoevents.enuns
+package br.com.msantos.octoevents.business.entity.enums
 
 enum class ActionEnum {
 
