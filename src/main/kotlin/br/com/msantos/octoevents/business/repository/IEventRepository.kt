@@ -9,16 +9,8 @@ import br.com.msantos.octoevents.business.entity.Event
  * @since 1.0.0
  * */
 interface IEventRepository {
-
-    /**
-     * @param numero identificador da issue
-     * @return list event
-     * */
     fun buscarPorNumero(numero: Int): List<Event>?
 
-    /**
-     * @param event entidade a ser persistida
-     * */
     fun persistir(event: Event)
 
 }
