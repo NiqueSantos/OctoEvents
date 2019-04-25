@@ -1,17 +1,28 @@
 package br.com.msantos.octoevents.web.dto
 
-data class EventDto (
+import com.google.gson.annotations.SerializedName
+import java.util.*
 
-    val action: String = "",
-    val number: String = "",
-    val title: String = "",
+data class EventDto(
 
-    val createdAt: String? = null,
-    val updatedAt: String? = null,
-    val closedAt: String? = null,
-    val repositoryUrl: String? = null,
-    val comments: String? = null,
-    val login: String? = null,
-    val body: String? = null,
-    val id: String? = null
+    @SerializedName("action") val action: String,
+    @SerializedName("issue") val issue: Issue
+)
+
+data class Issue(
+    @SerializedName("id") val id: Int,
+    @SerializedName("number") val number: Int,
+    @SerializedName("title") val title: String,
+    @SerializedName("created_at") val createdAt: Date,
+    @SerializedName("closedAt") val closedAt: Date?,
+    @SerializedName("updated_at") val updatedAt: Date?,
+    @SerializedName("comments") val comments: String?,
+    @SerializedName("repositoryUrl") val repositoryUrl: String?,
+    @SerializedName("body") val body: String?,
+    @SerializedName("user") val user: User
+
+)
+
+data class User(
+    @SerializedName("login") val login: String
 )
