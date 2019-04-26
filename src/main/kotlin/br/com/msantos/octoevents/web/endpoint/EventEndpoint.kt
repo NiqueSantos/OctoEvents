@@ -2,7 +2,6 @@ package br.com.msantos.octoevents.web.endpoint
 
 import br.com.msantos.octoevents.business.entity.Event
 import br.com.msantos.octoevents.business.service.IEventService
-import com.google.gson.GsonBuilder
 import io.javalin.apibuilder.ApiBuilder.get
 import io.javalin.apibuilder.ApiBuilder.path
 import io.javalin.apibuilder.EndpointGroup
@@ -10,31 +9,32 @@ import org.eclipse.jetty.http.HttpStatus
 
 class EventEndpoint(private val eventService: IEventService) : EndpointGroup {
 
-    private val gson = GsonBuilder().create()
 
     override
     fun addEndpoints() {
 
-        path("issues") {
-            get(":number/events") { ctx ->
+        try {
 
-                val issueNumber = ctx.pathParam(":number").toInt()
-                val events: List<Event> = eventService.buscarPorNumero(issueNumber) as List<Event>
+            path("issues") {
+                get(":number/events") { ctx ->
 
-                if (events.isEmpty()) {
+                    val issueNumber = ctx.pathParam(":number").toInt()
+                    val events: List<Event> = eventService.buscarPorNumero(issueNumber) as List<Event>
 
-                    ctx.status(HttpStatus.NO_CONTENT_204)
-                    ctx.result("Nenhum evento foi encontrado para o número informado: ${ctx.pathParam("number")}")
+                    if (events.isEmpty()) {
 
-                } else {
+                        println("Nenhum evento foi encontrado para o número informado: ${ctx.pathParam("number")}")
+                        ctx.status(HttpStatus.NO_CONTENT_204)
 
-                    ctx.status(HttpStatus.OK_200)
-                    ctx.result(convertEventToJson(events))
+                    } else {
+
+                        ctx.status(HttpStatus.OK_200)
+                        ctx.json(events)
+                    }
                 }
             }
+        } catch (ex: Exception) {
+            ex.printStackTrace()
         }
     }
-
-    private fun convertEventToJson(eventList: List<Event>): String = gson.toJson(eventList)
-
 }

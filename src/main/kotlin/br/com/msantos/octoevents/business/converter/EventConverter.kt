@@ -4,12 +4,17 @@ import br.com.msantos.octoevents.business.entity.Event
 import br.com.msantos.octoevents.business.entity.enums.ActionEnum
 import br.com.msantos.octoevents.web.dto.EventDto
 
-
+/**
+ *
+ * @author monique.santos
+ * @since 1.0.0
+ *
+ * */
 class EventConverter {
 
-    fun toModel(eventDto: EventDto) {
+    fun toModel(eventDto: EventDto): Event {
 
-        val event = Event(
+        return Event(
 
                 ActionEnum.valueOf(eventDto.action.toUpperCase()),
                 eventDto.issue.number,

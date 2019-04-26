@@ -7,7 +7,7 @@ import java.util.*
  * @author monique.santos
  * @since 1.0.0
  *
- * Parse request data json to Event class
+ * Parse request data json para Event class
  * Serializa somente os dados que serão persistidos ao salvar uma Event class
  *
  * @see <a href="https://developer.github.com/v3/activity/events/types/#issuesevent">Webhook payload example</a>

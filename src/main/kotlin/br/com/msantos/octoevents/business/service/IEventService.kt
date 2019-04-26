@@ -1,6 +1,7 @@
 package br.com.msantos.octoevents.business.service
 
 import br.com.msantos.octoevents.business.entity.Event
+import br.com.msantos.octoevents.web.dto.EventDto
 
 /***
  * @author monique.santos
@@ -16,7 +17,7 @@ interface IEventService {
     fun buscarPorNumero(numero: Int): List<Event>?
 
     /**
-     * @param event entidade a ser persistida
+     * @param eventDto payload da request a ser convertido na entity a salvar
      * */
-    fun persistir(event: Event)
+    fun persistir(eventDto: EventDto)
 }
