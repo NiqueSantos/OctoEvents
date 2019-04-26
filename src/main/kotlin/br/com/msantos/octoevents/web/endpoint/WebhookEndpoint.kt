@@ -1,6 +1,7 @@
 package br.com.msantos.octoevents.web.endpoint
 
 import br.com.msantos.octoevents.business.service.IEventService
+import br.com.msantos.octoevents.web.dto.EventDto
 import io.javalin.apibuilder.ApiBuilder.post
 import io.javalin.apibuilder.EndpointGroup
 
@@ -10,7 +11,7 @@ class WebhookEndpoint(val eventService: IEventService) : EndpointGroup {
 
         post("webhook") { ctx ->
 
-//            val eventRequest = ctx.bodyAsClass(EventDto::class.java)
+            val eventPayload = ctx.bodyAsClass(EventDto::class.java)
 
         }
     }

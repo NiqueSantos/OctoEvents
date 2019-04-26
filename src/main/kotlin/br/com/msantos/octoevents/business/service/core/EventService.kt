@@ -8,5 +8,9 @@ class EventService(private val eventRepository: EventRepository) : IEventService
 
     override fun buscarPorNumero(numero: Int): List<Event>? = eventRepository.buscarPorNumero(numero)
 
-    override fun persistir(event: Event) = eventRepository.persistir(event)
+    override fun persistir(eventDto: Event) = eventRepository.persistir(eventDto)
+
+//    override fun persistir(eventDto: EventDto) {
+//
+//    }
 }

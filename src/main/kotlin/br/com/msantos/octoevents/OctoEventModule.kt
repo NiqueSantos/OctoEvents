@@ -8,11 +8,12 @@ import org.koin.dsl.module.module
 
 
 /**
+     * @author monique.santos
+     * @since 1.0.0
+     *
      * Reference https://insert-koin.io/docs/2.0/getting-started/kotlin/
      *                   Declaring dependencies
      *
-     * @author monique.santos
-     * @since 1.0.0
      * */
     val octoEventModule = module {
 

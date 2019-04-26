@@ -8,7 +8,7 @@ data class Event(
         val action: ActionEnum,
         val number: Int,
         val title: String,
-        val createdAt: Date,
+        val createdAt: Date?,
         val updatedAt: Date? = null,
         val closedAt: Date? = null,
         val comments: String? = "",
