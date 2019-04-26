@@ -1,5 +1,8 @@
 package br.com.msantos.octoevents.business.converter
 
+import br.com.msantos.octoevents.business.entity.Event
+import br.com.msantos.octoevents.business.entity.enums.ActionEnum
+import br.com.msantos.octoevents.web.dto.EventDto
 
 
 class EventConverter {
@@ -9,6 +12,7 @@ class EventConverter {
         val event = Event(
 
                 ActionEnum.valueOf(eventDto.action.toUpperCase()),
+                eventDto.issue.number,
                 eventDto.issue.title,
                 eventDto.issue.createdAt,
                 eventDto.issue.updatedAt,
@@ -16,8 +20,8 @@ class EventConverter {
                 eventDto.issue.comments,
                 eventDto.issue.repositoryUrl,
                 eventDto.issue.user.login,
+                eventDto.issue.body,
                 eventDto.issue.id
         )
-
     }
 }

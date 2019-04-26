@@ -5,7 +5,7 @@ import br.com.msantos.octoevents.web.dto.EventDto
 import io.javalin.apibuilder.ApiBuilder.post
 import io.javalin.apibuilder.EndpointGroup
 
-class WebhookEndpoint(val eventService: IEventService) : EndpointGroup {
+class WebhookEndpoint() : EndpointGroup {
 
     override fun addEndpoints() {
 

@@ -9,6 +9,7 @@ import br.com.msantos.octoevents.business.entity.Event
  * @since 1.0.0
  * */
 interface IEventRepository {
+
     fun buscarPorNumero(numero: Int): List<Event>?
 
     fun persistir(event: Event)

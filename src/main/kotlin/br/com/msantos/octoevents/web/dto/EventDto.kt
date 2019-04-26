@@ -28,7 +28,7 @@ data class Issue(
     @SerializedName("closedAt") val closedAt: Date?,
     @SerializedName("updated_at") val updatedAt: Date?,
     @SerializedName("comments") val comments: String?,
-    @SerializedName("repositoryUrl") val repositoryUrl: String?,
+    @SerializedName("repositoryUrl") val repositoryUrl: String,
     @SerializedName("body") val body: String?,
     @SerializedName("user") val user: User
 

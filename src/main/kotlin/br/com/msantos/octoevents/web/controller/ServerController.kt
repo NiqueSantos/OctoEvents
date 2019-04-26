@@ -42,7 +42,7 @@ class ServerController : KoinComponent {
 
         this.app.routes {
             EventEndpoint(eventService).addEndpoints()
-            WebhookEndpoint(eventService).addEndpoints()
+//            WebhookEndpoint(eventService).addEndpoints()
         }
 
         build()
