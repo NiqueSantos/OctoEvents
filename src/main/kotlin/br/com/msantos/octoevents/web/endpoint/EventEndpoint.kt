@@ -9,32 +9,26 @@ import org.eclipse.jetty.http.HttpStatus
 
 class EventEndpoint(private val eventService: IEventService) : EndpointGroup {
 
-
     override
     fun addEndpoints() {
 
-        try {
+        path("issues") {
+            get(":number/events") { ctx ->
 
-            path("issues") {
-                get(":number/events") { ctx ->
+                val issueNumber = ctx.pathParam(":number").toInt()
+                val events: List<Event> = eventService.buscarPorNumero(issueNumber) as List<Event>
 
-                    val issueNumber = ctx.pathParam(":number").toInt()
-                    val events: List<Event> = eventService.buscarPorNumero(issueNumber) as List<Event>
+                if (events.isEmpty()) {
 
-                    if (events.isEmpty()) {
+                    ctx.status(HttpStatus.NOT_FOUND_404)
+                    ctx.json("Nenhum evento foi encontrado para o número informado: ${ctx.pathParam("number")}")
 
-                        println("Nenhum evento foi encontrado para o número informado: ${ctx.pathParam("number")}")
-                        ctx.status(HttpStatus.NO_CONTENT_204)
+                } else {
 
-                    } else {
-
-                        ctx.status(HttpStatus.OK_200)
-                        ctx.json(events)
-                    }
+                    ctx.status(HttpStatus.OK_200)
+                    ctx.json(events)
                 }
             }
-        } catch (ex: Exception) {
-            ex.printStackTrace()
         }
     }
 }

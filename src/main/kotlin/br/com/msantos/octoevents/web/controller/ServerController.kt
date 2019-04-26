@@ -46,7 +46,6 @@ class ServerController : KoinComponent {
         }
 
         build()
-
     }
 
     private fun build(): Javalin = this.app
