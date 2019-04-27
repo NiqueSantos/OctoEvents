@@ -19,6 +19,6 @@ interface IEventRepository {
     /**
      * @param event entidade a ser persistida
      * */
-    fun persistir(event: Event)
+    fun persistir(event: Event): Event
 
 }

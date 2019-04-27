@@ -25,5 +25,6 @@ class EventRepository : IEventRepository {
 
     override fun buscarPorNumero(numero: Int): List<Event>? = col.find(Event::number eq numero).toList()
 
-    override fun persistir(event: Event) = col.insertOne(event)
+    override fun persistir(event: Event): Event = event.apply { col.insertOne(event) }
+
 }

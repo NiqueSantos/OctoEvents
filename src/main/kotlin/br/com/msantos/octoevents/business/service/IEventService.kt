@@ -19,5 +19,5 @@ interface IEventService {
     /**
      * @param eventDto payload da request a ser convertido na entity a salvar
      * */
-    fun persistir(eventDto: EventDto)
+    fun persistir(eventDto: EventDto): Event
 }

@@ -16,7 +16,7 @@ import org.koin.standalone.inject
  * */
 class ServerController : KoinComponent {
 
-    private val app: Javalin
+    val app: Javalin
     private val eventService by inject<IEventService>()
 
 
