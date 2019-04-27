@@ -28,7 +28,8 @@ Koin
 Konfig
 Gson
 
-EventEndpoint
+# Event Endpoint
+
 http://localhost:7000/issues/{number}/events
 
 Response Json (exemplo)
@@ -39,7 +40,8 @@ HttpStatus suportados:
 
 HttpStatus.BAD_REQUEST_400 HttpStatus.CREATED_201 HttpStatus.INTERNAL_SERVER_ERROR_500
 
-WebhookEndpoint
+# Webhook Endpoint
+
 http://localhost:7000/issues/webhook
 
 Payload válido (exemplo)
