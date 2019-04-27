@@ -7,6 +7,12 @@ import io.javalin.apibuilder.ApiBuilder.path
 import io.javalin.apibuilder.EndpointGroup
 import org.eclipse.jetty.http.HttpStatus
 
+/**
+ *
+ * @author monique.santos
+ * @since 1.0.0
+ *
+ * */
 class EventEndpoint(private val eventService: IEventService) : EndpointGroup {
 
     override
@@ -25,8 +31,16 @@ class EventEndpoint(private val eventService: IEventService) : EndpointGroup {
 
                 } else {
 
-                    ctx.status(HttpStatus.OK_200)
-                    ctx.json(events)
+                    try {
+
+                        ctx.status(HttpStatus.OK_200)
+                        ctx.json(events)
+
+                    } catch (ex: Exception) {
+
+                        ctx.status(HttpStatus.INTERNAL_SERVER_ERROR_500)
+                        ctx.json("Ocorreu um erro inesperado e não foi possível retornar resultado.")
+                    }
                 }
             }
         }

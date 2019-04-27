@@ -6,6 +6,12 @@ import io.javalin.apibuilder.ApiBuilder.post
 import io.javalin.apibuilder.EndpointGroup
 import org.eclipse.jetty.http.HttpStatus
 
+/**
+ *
+ * @author monique.santos
+ * @since 1.0.0
+ *
+ * */
 class WebhookEndpoint(private val eventService: IEventService) : EndpointGroup {
 
     override fun addEndpoints() {
@@ -20,10 +26,17 @@ class WebhookEndpoint(private val eventService: IEventService) : EndpointGroup {
 
             } else {
 
-                eventService.persistir(eventPayload)
-                ctx.status(HttpStatus.CREATED_201)
-                ctx.json("Evento ${eventPayload.issue.number} salvo com sucesso!")
+                try {
 
+                    eventService.persistir(eventPayload)
+                    ctx.status(HttpStatus.CREATED_201)
+                    ctx.json("Evento ${eventPayload.issue.number} salvo com sucesso!")
+
+                } catch (ex: Exception) {
+
+                    ctx.status(HttpStatus.INTERNAL_SERVER_ERROR_500)
+                    ctx.json("Ocorreu um erro inesperado e não foi possível salvar o evento.")
+                }
             }
         }
     }

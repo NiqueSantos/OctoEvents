@@ -12,8 +12,6 @@ import io.javalin.json.ToJsonMapper
  * */
 class JsonUtil {
 
-   private val gson = GsonBuilder().create()
-
     /**
      * Json mapper
      * Usados ao chamar ctx.json()ou ctx.body<MyClass>()
@@ -23,6 +21,7 @@ class JsonUtil {
      * */
     fun javalinJsonMapper() {
 
+        val gson = GsonBuilder().create()
         JavalinJson.fromJsonMapper = object : FromJsonMapper {
             override fun <T> map(json: String, targetClass: Class<T>): T = gson.fromJson(json, targetClass)
         }

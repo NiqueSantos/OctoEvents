@@ -13,7 +13,12 @@ import org.koin.standalone.inject
 import org.koin.test.KoinTest
 import java.util.*
 
-
+/**
+ *
+ * @author monique.santos
+ * @since 1.0.0
+ *
+ * */
 class EventServiceTest: KoinTest {
 
     private val eventService by inject<IEventService>()

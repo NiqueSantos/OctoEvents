@@ -3,6 +3,12 @@ package br.com.msantos.octoevents.business.entity
 import br.com.msantos.octoevents.business.entity.enums.ActionEnum
 import java.util.*
 
+/**
+ *
+ * @author monique.santos
+ * @since 1.0.0
+ *
+ * */
 data class Event(
 
         val action: ActionEnum,

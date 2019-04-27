@@ -23,7 +23,7 @@ repositories {
 dependencies {
 
 	compile 'org.jetbrains.kotlin:kotlin-stdlib-jdk8'
-	compile 'com.fasterxml.jackson.module:jackson-module-kotlin'
+	compile "com.fasterxml.jackson.core:jackson-databind:2.9.6"
 	compile 'org.jetbrains.kotlin:kotlin-reflect'
 	compile 'io.javalin:javalin:2.1.1'
 	compile 'org.litote.kmongo:kmongo:3.8.3'
@@ -31,12 +31,12 @@ dependencies {
 	compile group: 'org.koin', name: 'koin-core', version: '1.0.0-RC-3'
 	compile group: 'com.google.code.gson', name: 'gson', version: '2.8.5'
 	compile "org.slf4j:slf4j-simple:1.7.25"
-
+	
 	testCompile group: 'de.flapdoodle.embed', name: 'de.flapdoodle.embed.mongo', version: '2.1.1'
 	testCompile group: 'org.koin', name: 'koin-test', version: '0.9.3'
-	testCompile group: 'junit', name: 'junit', version: '4.12'
-	testCompile group: 'com.nhaarman', name: 'expect.kt', version: '1.0.0'
-	testCompile group: 'khttp', name: 'khttp', version: '0.1.0'
+	testCompile "org.junit.jupiter:junit-jupiter-api:5.4.1"
+	testCompile "io.rest-assured:rest-assured:3.3.0"
+	testCompile "org.assertj:assertj-core:3.11.1"
 
 }
 
