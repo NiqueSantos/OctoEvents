@@ -42,7 +42,7 @@ HttpStatus.BAD_REQUEST_400 HttpStatus.CREATED_201 HttpStatus.INTERNAL_SERVER_ERR
 
 # Webhook Endpoint
 
-http://localhost:7000/issues/webhook
+http://localhost:7000/webhook
 
 Payload válido (exemplo)
 
